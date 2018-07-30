@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Event</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/screen.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/fonts.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="mainContainer"></div>
+</body>
+
+<script type="text/x-jquery-tmpl" id="loginScreenTemplate">
+    <div class="loginScreen">
+        <div class="overlay"></div>
+        <div class="form">
+            <div class="loginFormWrapper">
+                <div class="inputBox">
+                    <input type="text" class="inputText userName" placeholder="User Name">
+                </div>
+                <div class="inputBox">
+                    <input type="password" class="inputText password" placeholder="Password">
+                </div>
+                <div class="loginBtn loginByUserName">login now</div>
+                <!-- <div class="loginBtn facebook">
+                    <span class="icon fa fa-facebook"></span>
+                    <span class="label">login with facebook</span>
+                </div>
+                <div class="loginBtn gmail">
+                    <span class="icon fa fa-google"></span>
+                    <span class="label">login with gmail</span>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="eventsScreenTemplate">
+    <div class="eventsScreen">
+        <div class="eventWrapper">
+            {{each(i,v) eventsMeta}}
+            <div class="event">
+                <div class="icon"></div>
+                <div class="eventInfo">
+                    <div class="upperSection">
+                        <div class="date">
+                            <div class="day">{{html moment(date,"YYYY-MM-DD").format("DD")}}</div>
+                            <div class="month">{{html moment(date,"YYYY-MM-DD").format("MMM")}}</div>
+                        </div>
+                        <div class="eventName">{{html eventName}}</div>
+                        <div class="bookNow">book now</div>
+                    </div>
+                    <div class="footerSection">
+                        <div class="tags">
+                            <div class="tag">{{html type}}</div>
+                        </div>
+                        <div class="price">{{html price}}</div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="footer">
+            <div class="addNew">+</div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="addNewEventScreenTemplate">
+    <div class="addNewEventScreen">
+        <div class="header">
+            <div class="btn back">back</div>
+            <div class="btn save">save</div>
+        </div>
+        <div class="formContainer">
+            {{each(i,v) formMeta}}
+            <div class="inputBox">
+                <input type="{{html inputType}}" class="inputText {{html id}}" data-id="{{html id}}" placeholder="{{html title}}">
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript" src="../scripts/jquery.js"></script>
+<script type="text/javascript" src="../scripts/jquery-ui.js"></script>
+<script type="text/javascript" src="../scripts/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="../scripts/moment.min.js"></script>
+<script type="text/javascript" src="../scripts/jquery-cooki.js"></script>
+
+<script type="text/javascript" src="../js/appConfig.js"></script>
+<script type="text/javascript" src="../js/base.js"></script>
+<script type="text/javascript" src="../js/index.js"></script>
+<script type="text/javascript" src="../js/setting.js"></script>
+
+<script type="text/javascript" src="../_screens/loginScreen/screen.js"></script>
+<script type="text/javascript" src="../_screens/eventsScreen/screen.js"></script>
+<script type="text/javascript" src="../_screens/newEventScreen/screen.js"></script>
+
+</html>
